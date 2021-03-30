@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 //Static files for our backend
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 //session settings
 app.use(

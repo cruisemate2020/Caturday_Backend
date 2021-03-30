@@ -52,15 +52,14 @@ app.use("/api", require("./routes/auth-routes"));
 app.use("/api", require("./routes/fileUpload-routes"));
 
 //Sends our one single page on all requests
-app.get("*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
-});
+// app.get("*", (req, res, next) => {
+//   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+// });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening to port ${PORT}`));
 
-// app.use((req, res, next) => {
-//   // If no routes match, send them the React HTML.
-//   res.sendFile(__dirname + "/public/index.html");
-// });
-
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});

@@ -56,10 +56,10 @@ app.use("/api", require("./routes/fileUpload-routes"));
 //   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 // });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Listening to port ${PORT}`));
-
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
   res.sendFile(__dirname + "/public/index.html");
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Listening to port ${PORT}`));

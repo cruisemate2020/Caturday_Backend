@@ -63,7 +63,8 @@ app.use("/api", require("./routes/fileUpload-routes"));
 
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
-  res.sendFile(__dirname,  "/public/index.html");
+  console.log({ dirname: __dirname + "./public/index.html" });
+  res.sendFile(__dirname + "./public/index.html");
 });
 
 const PORT = process.env.PORT || 5000;

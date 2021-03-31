@@ -20,7 +20,12 @@ mongoose
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", process.env.clientURL], //Add client urls to allow CORS
+    origin: [
+      "http://localhost:3000",
+      "https://localhost:3000",
+      process.env.client_url,
+      process.env.client_url_secured,
+    ], //Add client urls to allow CORS
   })
 );
 

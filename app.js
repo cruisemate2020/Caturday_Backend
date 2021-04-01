@@ -68,7 +68,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
   // console.log({ dirname: __dirname + "./public/index.html" });
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.resolve(__dirname + "/index.html"));
 });
 
 // const root = require('path').join(__dirname, 'client', 'build')

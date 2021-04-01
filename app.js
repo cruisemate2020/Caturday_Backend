@@ -60,18 +60,19 @@ app.use("/api", require("./routes/fileUpload-routes"));
 // app.get("*", (req, res, next) => {
 //   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 // });
+app.use(express.static(path.join(__dirname, "/public")));
 
-// app.use((req, res, next) => {
-//   // If no routes match, send them the React HTML.
-//   // console.log({ dirname: __dirname + "./public/index.html" });
-//   res.sendFile(__dirname + "/public/index.html");
-// });
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  // console.log({ dirname: __dirname + "./public/index.html" });
+  res.sendFile(__dirname + "/index.html");
+});
 
-const root = require('path').join(__dirname, 'client', 'build')
-app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('/public/index.html', { root });
-})
+// const root = require('path').join(__dirname, 'client', 'build')
+// app.use(express.static(root));
+// app.get("*", (req, res) => {
+//     res.sendFile('/public/index.html', { root });
+// })
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening to port ${PORT}`));

@@ -109,6 +109,7 @@ router.delete("/rescue-story/delete/:id", (req, res) => {
   RescueStory.findByIdAndRemove(req.params.id)
     .then(() => {
       console.log("deleted! - backend");
+      res.status(200).json({ success: true });
     })
     .catch((err) => res.json(err));
 });

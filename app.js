@@ -41,7 +41,15 @@ app.use(
   session({
     secret: "some secret goes here",
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
+      cookie: {
+        maxAge: 7200000 //120 min (120 * 60 * 1000ms) 
+      },
+      store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        // ttl ==> time to live
+        ttl: 24 * 60 * 60 // 1 day
+      })
   })
 );
 

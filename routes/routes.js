@@ -34,7 +34,6 @@ router.get("/rescue-story", (req, res) => {
   RescueStory.find()
     .populate({ path: "userId", select: "username" })
     .then((foundStories) => {
-      console.log({ foundStories });
       res.json(foundStories);
     })
     .catch((err) => res.json(err));
@@ -108,7 +107,6 @@ router.put("/edit-user/:id", (req, res, next) => {
 router.delete("/rescue-story/delete/:id", (req, res) => {
   RescueStory.findByIdAndRemove(req.params.id)
     .then(() => {
-      console.log("deleted! - backend");
       res.status(200).json({ success: true });
     })
     .catch((err) => res.json(err));
